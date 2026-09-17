@@ -1,0 +1,20 @@
+{
+  "name": "counter_reader",
+  "display_name": "LEZ Counter Reader",
+  "version": "0.1.0",
+  "description": "Reads the lez_counter program's on-chain state from a LEZ sequencer. Read-only: no wallet, no key material, no transactions.",
+  "author": "opuye",
+  "type": "core",
+  "interface": "cdylib",
+  "category": "blockchain",
+  "main": "counter_reader_plugin",
+  "dependencies": [],
+  "include": [],
+  "capabilities": [],
+  "codegen": { "rust": { "crate": "rust-lib", "trait": "CounterReaderModule" } },
+  "nix": {
+    "external_libraries": [],
+    "packages": { "build": [], "runtime": [] },
+    "cmake": { "find_packages": [], "extra_include_dirs": [] }
+  }
+}

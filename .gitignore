@@ -1,0 +1,17 @@
+# nix build outputs (symlinks into /nix/store)
+result
+result-*
+counter_reader/logos-rust-sdk-src
+
+# cargo
+**/target/
+
+# local host state: installed modules, plugins, logs, user dirs
+bcdata/
+run/
+host/
+
+# program build state
+*.bin
+.lez_counter-state
+.lez_counter-state.tmp

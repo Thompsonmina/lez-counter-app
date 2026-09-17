@@ -1,0 +1,14 @@
+# Cargo reads this from the manifest's ancestor directories, including inside
+# the `cargo risczero build` container (the build context is this project).
+#
+# The reproducible guest build re-fetches every dependency inside the container,
+# including the large git deps (logos-execution-zone ~157MB, logos-blockchain
+# ~137MB). Over a shaped/lossy link libgit2 dies partway with
+# "SSL error: unknown error; class=Ssl (16)".
+#
+# NOTE: cargo's own hint suggests `git-fetch-with-cli = true` for this, but the
+# risc0 build image (risczero/risc0-guest-builder:r0.1.88.0) has NO git binary
+# -- verified -- so that setting makes the build fail immediately instead.
+# Retries are the only lever available from inside the context.
+[net]
+retry = 10

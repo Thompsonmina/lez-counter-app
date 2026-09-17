@@ -1,0 +1,6 @@
+[program]
+idl = "lez_counter-idl.json"
+# Built with `cargo build -p lez_counter-methods` (risc0_build::embed_methods),
+# not `cargo risczero build` -- the containerised reproducible build could not
+# fetch its dependencies over this link. Same ProgramBinary format (R0BF).
+binary = "target/riscv-guest/lez_counter-methods/lez_counter-guest/riscv32im-risc0-zkvm-elf/release/lez_counter.bin"

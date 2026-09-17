@@ -1,0 +1,18 @@
+[package]
+name = "lez_counter-methods"
+version = "0.1.0"
+edition = "2021"
+
+# Required by risc0-build: it reads `pkg.metadata["risc0"]` and unwraps it, so
+# without this section `embed_methods()` panics and `cargo risczero bake` finds
+# nothing to build. The scaffold omitted it; this is the stock risc0 template
+# field, naming the guest directory.
+[package.metadata.risc0]
+methods = ["guest"]
+
+[build-dependencies]
+risc0-build = "=3.0.5"
+
+[dependencies]
+risc0-zkvm = { version = "=3.0.5", features = ["std"] }
+lez_counter_core = { path = "../lez_counter_core" }

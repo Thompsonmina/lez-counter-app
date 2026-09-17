@@ -1,0 +1,24 @@
+{
+  "name": "counter_ui",
+  "display_name": "LEZ Counter",
+  "version": "0.1.0",
+  "description": "Reads the lez_counter program's state from the LEZ public testnet and shows it. Read-only: no wallet, no key material, no transactions.",
+  "author": "opuye",
+  "license": "MIT OR Apache-2.0",
+  "type": "ui_qml",
+  "category": "blockchain",
+  "view": "qml/Main.qml",
+  "icon": "icons/panel.png",
+  "dependencies": ["counter_reader"],
+
+  "nix": {
+    "packages": { "build": [], "runtime": [] },
+    "external_libraries": [],
+    "cmake": {
+      "find_packages": [],
+      "extra_sources": [],
+      "extra_include_dirs": [],
+      "extra_link_libraries": []
+    }
+  }
+}

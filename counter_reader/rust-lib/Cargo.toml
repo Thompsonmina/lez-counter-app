@@ -1,0 +1,23 @@
+[package]
+name = "counter_reader"
+version = "0.1.0"
+edition = "2021"
+
+# Standalone crate — the empty table keeps cargo from adopting any workspace
+# it finds in a parent directory.
+[workspace]
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+# rustls-tls is pure-Rust and bundles webpki-roots, so this module needs no
+# system cert store and `nix.packages.runtime` stays empty. blocking: module
+# methods are synchronous.
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json", "blocking"] }
+serde_json = "1"
+url = "2"
+borsh = { version = "1.5", features = ["derive"] }
+# schema lives in src/schema.rs -- see the note there on why it cannot be a
+# sibling crate on this builder line.
+logos-rust-sdk = { path = "../logos-rust-sdk-src" }
